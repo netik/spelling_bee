@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
+
+# Original code by fisheravonlea@gmail.com 
+#
+# The text file contains a non-exhaustive set of words, which means that some
+# words that are valid for a Spelling Bee puzzle may not appear in the solver's
+# output. Additionally, not all of the output words will be valid entries for
+# the puzzle. The puzzles are curated to exclude highly obscure words, which are
+# not systematically excluded by the solver.
+
+
 import sys
 
 def solve_spelling_bee(letters_list, center_letter):
     
     '''Takes in a list of strings for letters_list and a single character string for center_letter.
-       Returns a list of words from wordlist which contain the center letter, have a length of at 
+       Returns a list of words from word list which contain the center letter, have a length of at 
        least 4, and do not contain any unacceptable letters.'''
     
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',

@@ -1,5 +1,5 @@
-#!/opt/homebrew/bin/python
-
+#!/usr/bin/env python3
+#
 # jna@retina.net
 # John Adams
 # 
