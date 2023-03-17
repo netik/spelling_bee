@@ -56,26 +56,28 @@ def solve_spelling_bee(letters_list, center_letter):
                         
     return acceptable_words
 
+def main():
+    # make sure there are two arguemnts
+    if len(sys.argv) != 3:
+        print("Usage: python3 solver.py <letters> <center letter>")
+        sys.exit(1)
 
-# make sure there are two arguemnts
-if len(sys.argv) != 3:
-    print("Usage: python3 solver.py <letters> <center letter>")
-    sys.exit(1)
+    # convert the letters to a list
+    letters_list = list(sys.argv[1])
+    center_letter = sys.argv[2]
 
-# convert the letters to a list
-letters_list = list(sys.argv[1])
-center_letter = sys.argv[2]
+    if len(sys.argv[2]) != 1:
+        print("Please enter 1 letter for center letter.")
+        sys.exit(1)
 
-if len(sys.argv[2]) != 1:
-    print("Please enter 1 letter for center letter.")
-    sys.exit(1)
+    if len(letters_list) != 7:
+        print("Please enter 7 letters for letters-list.")
+        sys.exit(1)
 
-if len(letters_list) != 7:
-    print("Please enter 7 letters for letters-list.")
-    sys.exit(1)
+    solution = solve_spelling_bee(letters_list, center_letter)
 
-solution = solve_spelling_bee(letters_list, center_letter)
+    for word in solution:
+        print("%-10s %d %s" % ( word.title(), len(word), is_pangram(letters_list, word)))
 
-for word in solution:
-    print("%-10s %d %s" % ( word.title(), len(word), is_pangram(letters_list, word)))
-
+if __name__ == "__main__":
+    main()
