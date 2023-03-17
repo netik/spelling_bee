@@ -32,14 +32,15 @@ def solve_spelling_bee(letters_list, center_letter):
         wordlist.append(str(word).lower()[:-1])
 
     blocklist_file = open("blocklist.txt", "r") #replace with your own file path
-    blocklist = []
+    blocklist = {}
 
+    # hashing is much faster
     for blockword in blocklist_file:
-        blocklist.append(str(blockword).lower()[:-1])
+        blocklist[str(blockword).lower()[:-1]] = 1
 
     for word in wordlist:
         if center_letter in word:
-            if word not in acceptable_words and word not in blocklist:
+            if word not in acceptable_words and not word in blocklist:
                 if len(word) > 3:
                     if any(l in unacceptable_letters for l in word) == False:
                         acceptable_words.append(word)
