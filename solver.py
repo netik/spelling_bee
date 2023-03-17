@@ -11,6 +11,15 @@
 
 import sys
 
+def is_pangram(letters_list, word):
+    '''Takes in a list of strings for letters_list and a string for word.
+       Returns a string indicating whether the word is a pangram or not.'''
+    for letter in letters_list:
+        if letter not in word:
+            return ""
+
+    return "pangram"
+
 def solve_spelling_bee(letters_list, center_letter):
     
     '''Takes in a list of strings for letters_list and a single character string for center_letter.
@@ -68,5 +77,5 @@ if len(letters_list) != 7:
 solution = solve_spelling_bee(letters_list, center_letter)
 
 for word in solution:
-    print("%-10s %d" % ( word.title(), len(word)))
+    print("%-10s %d %s" % ( word.title(), len(word), is_pangram(letters_list, word)))
 
